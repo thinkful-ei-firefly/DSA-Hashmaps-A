@@ -1,25 +1,25 @@
 const HashMap = require('./hashmap.js');
-
+const ChainMap = require('./SepChaining');
 
 function main() {
-  const newHashMap = new HashMap();
+  const lor = new HashMap();
 
-  newHashMap.MAX_LOAD_RATIO = 0.5;
-  newHashMap.SIZE_RATIO = 3;
+  lor.MAX_LOAD_RATIO = 0.5;
+  lor.SIZE_RATIO = 3;
 
-  newHashMap.set('Hobbit', 'Bilbo');
-  newHashMap.set('Hobbit', 'Frodo');
-  newHashMap.set('Wizard', 'Gandalf');
-  newHashMap.set('Human', 'Aragon');
-  newHashMap.set('Elf', 'Legolas');
-  newHashMap.set('Maiar', 'The Necromancer');
-  newHashMap.set('Maiar', 'Sauron');
-  newHashMap.set('RingBearer', 'Gollum');
-  newHashMap.set('LadyOfLight', 'Galadriel');
-  newHashMap.set('HalfElven', 'Arwen');
-  newHashMap.set('Ent', 'Treebeard');
+  lor.set('Hobbit', 'Bilbo');
+  lor.set('Hobbit', 'Frodo');
+  lor.set('Wizard', 'Gandalf');
+  lor.set('Human', 'Aragon');
+  lor.set('Elf', 'Legolas');
+  lor.set('Maiar', 'The Necromancer');
+  lor.set('Maiar', 'Sauron');
+  lor.set('RingBearer', 'Gollum');
+  lor.set('LadyOfLight', 'Galadriel');
+  lor.set('HalfElven', 'Arwen');
+  lor.set('Ent', 'Treebeard');
 
-//   console.log(newHashMap._hashTable);
+//   console.log(lor._hashTable);
 
   // Exercise 1
 
@@ -137,3 +137,33 @@ function main() {
 }
 
 main();
+
+function chainMain() {
+    const lor = new ChainMap();
+  
+    lor.MAX_LOAD_RATIO = 0.5;
+    lor.SIZE_RATIO = 3;
+  
+    lor.set('Hobbit', 'Bilbo');
+    lor.set('Hobbit', 'Frodo');
+    lor.set('Wizard', 'Gandalf');
+    lor.set('Human', 'Aragon');
+    lor.set('Elf', 'Legolas');
+    lor.set('Maiar', 'The Necromancer');
+    lor.set('Maiar', 'Sauron');
+    lor.set('RingBearer', 'Gollum');
+    lor.set('LadyOfLight', 'Galadriel');
+    lor.set('HalfElven', 'Arwen');
+    lor.set('Ent', 'Treebeard');
+    lor.delete('LadyOfLight');
+    lor.delete('HalfElven');
+    lor.delete('Wizard');
+  
+  
+    console.log(lor);
+    console.log('________________');
+    console.log(lor._hashTable[4].next);
+    console.log(lor.get('Ent'));
+  }
+  
+//   chainMain();
